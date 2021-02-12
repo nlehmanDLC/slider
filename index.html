@@ -1,0 +1,94 @@
+<!DOCTYPE html
+          PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=EmulateIE8" />
+    <title>Momentum Group Photos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css"
+          rel="stylesheet" />
+    <script type="text/javascript"
+            src="js/jquery-1.5.min.js"></script>
+    <script src="js/jquery.bxSlider.arrows.js"
+            type="text/javascript"></script>
+    <script src="js/jquery.fitvids.js"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var slider = $('#bx-slider1').bxSlider({
+                auto: true,
+                video: true,
+                onNextSlide: function (currentSlide) {
+                    var thumbIndex = $('.pagethumbs a').index(this);
+                    slider.goToSlide(thumbIndex);
+
+                    $('.pagethumbs a').removeClass('pager-active');
+                    $('.pagethumbs a#thumb' + currentSlide).addClass('pager-active');
+                    return false;
+                }
+            });
+
+            $('.pagethumbs a').click(function () {
+                var thumbIndex = $('.pagethumbs a').index(this);
+                slider.goToSlide(thumbIndex);
+                $('.pagethumbs a').removeClass('pager-active');
+                $(this).addClass('pager-active');
+                return false;
+            });
+
+            $('.pagethumbs a:first').addClass('pager-active');
+
+
+        });
+    </script>
+</head>
+
+<body>
+
+    <ul id="bx-slider1" style="width: 705px">
+        <li>
+            <video class="component-video__video lozad "
+                   width="705"
+                   muted=""
+                   autoplay=""
+                   loop=""
+                   playsinline=""
+                   data-loaded="true">
+                <source data-src="images/forest.mp4"
+                        type="video/mp4"
+                        src="images/forest.mp4">
+            </video>
+        </li>
+        <li>
+            <img src="images/photos_48.jpg"
+                 width="705"
+                 height="425"
+                 border="0"
+                 style="margin-bottom:10px;">
+        </li>
+        <li>
+            <img src="images/photos_44.jpg"
+                 width="705"
+                 height="425"
+                 border="0"
+                 style="margin-bottom:10px;">
+        </li>
+        <li>
+            <img src="images/photos_49.jpg"
+                 width="705"
+                 height="425"
+                 border="0"
+                 style="margin-bottom:10px;">
+        </li>
+        <li>
+            <img src="images/photos_70.jpg"
+                 width="705"
+                 height="425"
+                 border="0"
+                 style="margin-bottom:10px;">
+        </li>
+    </ul>
+</body>
